@@ -31,69 +31,8 @@ public class Maze implements MazeObserver
    */
   public Maze(String[] rows)
   {
-    int width = rows[0].length();
-    int height = rows.length;
-    cells = new MazeCell2D[height][width];
-    for (int row = 0; row < height; ++row)
-    {
-      String s = rows[row];
-      for (int col = 0; col < width; ++col)
-      {
-        MazeCell2D current = new MazeCell2D(row, col);
-        current.setObserver(this);
-        char c = s.charAt(col);
-        if (c == '#')
-        {
-          //current.setIsWall(true);
-          current = null;
-        }
-        else if (c == '$')
-        {
-          current.setStatus(Status.GOAL);
-        }
-        else if (c == 'S')
-        {
-          current.setStatus(Status.UNEXPLORED);
-          start = current;
-        }
-
-        else 
-        {
-          current.setStatus(Status.UNEXPLORED);
-        }  
-        cells[row][col] = current;
-      }
-    }
-    
-    for (int row = 0; row < height; ++row)
-    {
-      for (int col = 0; col < width; ++col)
-      {
-        MazeCell2D square = cells[row][col];
-        if (isAccessible(square))
-        {
-          // add edges from this to neighbors
-          if (row > 0 && isAccessible(cells[row - 1][col]))
-          {
-            square.addNeighbor(cells[row - 1][col]);
-          }
-          if (col > 0 && isAccessible(cells[row][col - 1]))
-          {
-            square.addNeighbor(cells[row][col - 1]);
-          }
-          if (row < height - 1 && isAccessible(cells[row + 1][col]))
-          {
-            square.addNeighbor(cells[row + 1][col]);
-          }
-          if (col < width - 1 && isAccessible(cells[row][col + 1]))
-          {
-            square.addNeighbor(cells[row][col + 1]);
-          }
-
-        }
-      }
-    }
-
+    //you 227 kids looking, I see you.
+    //nice try
    }
 
   /**
